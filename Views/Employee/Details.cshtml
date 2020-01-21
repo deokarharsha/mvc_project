@@ -1,0 +1,60 @@
+@model MVCAdoDemo.Models.Employee 
+ 
+  
+@{  
+    ViewData["Title"] = "Details";  
+} 
+<h2>
+    Details - @Html.DisplayFor(model => model.name)  
+       
+</h2>  
+<div>  
+    <hr />  
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+              <b>Address : </b>@Html.DisplayFor(model => model.address) 
+            </div>
+             <div class="col-4">
+                <b>City : </b>@Html.DisplayFor(model => model.city) 
+            </div>
+             <div class="col-4">
+                 <b>Department : </b>@Html.DisplayFor(model => model.department) 
+                 
+            </div>
+        </div>
+
+    </div>
+    <hr />
+    <h5> Salary   <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a></h5>   
+    <table class="table table-sm table-bordered">
+        <thead>
+            <tr>
+                <th>Basic</th>
+                <td> @Html.DisplayFor(model => model.basic)  </td>    
+            </tr>
+            <tr>
+                <th>HRA</th>
+                <td> @Html.DisplayFor(model => model.hra) </td>    
+            </tr>
+            <tr>
+                <th>DA</th>
+                <td> @Html.DisplayFor(model => model.da) </td>    
+            </tr>
+            <tr>
+                <th>TD</th>
+                <td> @Html.DisplayFor(model => model.td) </td>    
+            </tr>
+                <th>Salary</th>
+                <td> @Html.DisplayFor(model => model.salary)  </td>    
+        </thead>
+    </table>   
+</div>  
+
+<div class="pull-right">
+      <form asp-action="Delete">  
+        <input type="hidden" asp-for="ID" />  
+        <input type="submit" value="Delete" class="btn btn-danger" />  
+        <a asp-action="Index">Back to List</a>  
+    </form>  
+</div>
